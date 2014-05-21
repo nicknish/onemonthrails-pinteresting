@@ -40,6 +40,10 @@ class PinsController < ApplicationController
       head :no_content 
   end
 
+    def pin_params
+      params.require(:pin).permit(:description, :image)
+    end
+
   private
     def set_pin
       @pin = Pin.find(params[:id])
